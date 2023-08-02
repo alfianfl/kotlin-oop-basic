@@ -8,7 +8,7 @@ fun main() {
 
     var car2 = Car2()
     val iphone = MobilePhone("iOS", "Apple", "iPhone 12")
-    val galaxyS20 = MobilePhone("Android","Samsung", "Galaxy S20")
+    val galaxyS20 = MobilePhone("Android", "Samsung", "Galaxy S20")
     val mateXS = MobilePhone("Android", "Huawei", "Mate X S")
 
     iphone.chargeBattery(70)
@@ -39,7 +39,7 @@ class Person constructor(_firstName: String, _lastName: String) {
 }
 
 // Alternatively:
-class Person2(_firstName: String, _lastName: String){
+class Person2(_firstName: String, _lastName: String) {
     // Member Variables (Properties) of the class
     var firstName: String = _firstName
     var lastName: String = _lastName
@@ -60,7 +60,7 @@ class Person3(var firstName: String, var lastName: String) {
 
 // Or even:
 // whereby John and Doe will be default values
-class Person4(var firstName: String = "John", var lastName: String= "Doe") {
+class Person4(var firstName: String = "John", var lastName: String = "Doe") {
     // Initializer Block
     init {
         println("Initialized a new Person object with firstName = $firstName and lastName = $lastName")
@@ -79,13 +79,15 @@ class Person5(firstName: String, lastName: String) {
     }
 
     // secondary constructor
-    constructor(firstName: String, lastName: String, age: Int):
+    constructor(firstName: String, lastName: String, age: Int) :
             this(firstName, lastName) {
-                this.age = if(age > 0) age else throw IllegalArgumentException("Age must be greater than zero")
-                println("$firstName is $age years old")
-            }
-    fun stateHobby(){
-        println("${firstName} \'s Hobby is: $hobby'" )
+        this.age =
+            if (age > 0) age else throw IllegalArgumentException("Age must be greater than zero")
+        println("$firstName is $age years old")
+    }
+
+    fun stateHobby() {
+        println("${firstName} \'s Hobby is: $hobby'")
     }
 }
 
@@ -155,15 +157,15 @@ class Car2() {
         get() = field
         // costum setter
         set(value) {
-            field = if(value > 0) value else throw IllegalArgumentException("_maxSpeed must be greater than zero")
+            field =
+                if (value > 0) value else throw IllegalArgumentException("_maxSpeed must be greater than zero")
         }
 
-    init{
+    init {
         this.myModel = "M3"
         this.owner = "frank"
     }
 }
-
 
 
 // Exercise 1
@@ -180,7 +182,7 @@ class Car2() {
 //    val mateXS = MobilePhone("Android", "Huawei", "Mate X S")
 //}
 //
-class MobilePhone(osName: String, brand: String, model: String){
+class MobilePhone(osName: String, brand: String, model: String) {
 
     private var battery = 30
 
@@ -188,8 +190,8 @@ class MobilePhone(osName: String, brand: String, model: String){
         println("The phone $model from $brand uses $osName as its Operating System")
     }
 
-    fun chargeBattery(chargedBy: Int){
-        println("Battery was at $battery and is at ${battery+chargedBy} now")
+    fun chargeBattery(chargedBy: Int) {
+        println("Battery was at $battery and is at ${battery + chargedBy} now")
         battery += chargedBy
     }
 }
